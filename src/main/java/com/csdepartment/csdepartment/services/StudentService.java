@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface StudentService {
 
-    int getCredits();
+    int getCredits(int id);
 
-    int getCountStudies();
+    int getCountStudies(int id);
     void create(Student student);
 
     void update(Student student);

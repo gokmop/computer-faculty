@@ -4,9 +4,8 @@ import com.csdepartment.csdepartment.models.Student;
 import com.csdepartment.csdepartment.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -21,13 +20,13 @@ public class StudentServiceImpl implements StudentService {
 
 
     @Override
-    public int getCredits() {
-        return 0;
+    public int getCredits(int id) {
+        return repository.getCredits(id);
     }
 
     @Override
-    public int getCountStudies() {
-        return 0;
+    public int getCountStudies(int id) {
+        return repository.getCountStudies(id);
     }
 
     @Override

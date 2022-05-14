@@ -31,4 +31,8 @@ public interface StudentRepository {
 
     List<Student> top3Students();
 
+    int getCredits(int id);
+
+    int getCountStudies(int id);
+
 }

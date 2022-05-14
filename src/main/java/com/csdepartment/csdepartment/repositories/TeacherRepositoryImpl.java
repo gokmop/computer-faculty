@@ -1,6 +1,5 @@
 package com.csdepartment.csdepartment.repositories;
 
-import com.csdepartment.csdepartment.models.Student;
 import com.csdepartment.csdepartment.models.Teacher;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

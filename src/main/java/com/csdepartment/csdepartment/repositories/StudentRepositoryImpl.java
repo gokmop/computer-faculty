@@ -145,5 +145,22 @@ public class StudentRepositoryImpl implements StudentRepository{
         }
     }
 
+    @Override
+    public int getCredits(int id) {
+        try (Session session = sessionFactory.openSession()){
+            Student student = getById(id);
+            return student.getCredits();
+        }
+    }
+
+    @Override
+    public int getCountStudies(int id) {
+        try (Session session = sessionFactory.openSession()){
+            Student student = getById(id);
+            return student.getCountStudies();
+        }
+    }
+
+
 
 }
