@@ -1,83 +1,82 @@
 package com.csdepartment.csdepartment.repositories;
 
 import com.csdepartment.csdepartment.models.Student;
+import com.csdepartment.csdepartment.models.Teacher;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-
 @Repository
-public class StudentRepositoryImpl implements StudentRepository{
+public class TeacherRepositoryImpl implements TeacherRepository{
 
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public StudentRepositoryImpl(SessionFactory sessionFactory) {
+    public TeacherRepositoryImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-
     @Override
-    public void create(Student student) {
+    public void create(Teacher teacher) {
         try(Session session = sessionFactory.openSession()){
-            session.save(student);
+            session.save(teacher);
         }
     }
 
     @Override
-    public void update(Student student) {
+    public void update(Teacher teacher) {
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
-            session.update(student);
+            session.update(teacher);
             session.getTransaction().commit();
         }
     }
 
     @Override
-    public void delete(Student student) {
+    public void delete(Teacher teacher) {
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
-            session.delete(student);
+            session.delete(teacher);
             session.getTransaction().commit();
         }
     }
 
     @Override
-    public Student getById(int id) {
+    public Teacher getById(int id) {
         try (Session session = sessionFactory.openSession()){
-            Student student = session.get(Student.class, id);
-            if (student == null){
+            Teacher teacher = session.get(Teacher.class, id);
+            if (teacher == null){
                 throw new EntityNotFoundException(
-                        String.format("Student with id %d not found!", id));
+                        String.format("Teacher with id %d not found!", id));
             }
-            return student;
+            return teacher;
         }
     }
 
     @Override
-    public List<Student> getAll() {
+    public List<Teacher> getAll() {
         try (Session session = sessionFactory.openSession()){
-            Query<Student> query = session.createQuery("from Students order by firstName");
+            Query<Teacher> query = session.createQuery("from Teachers order by firstNameTeach");
             return query.list();
         }
     }
 
     @Override
-    public List<Student> filterByName(String firstName) {
-
-        if (firstName.isEmpty()){
+    public List<Teacher> filterByFirstName(String name) {
+        if (name.isEmpty()){
             return getAll();
         }
 
         try (Session session = sessionFactory.openSession()){
 
-            String hql = "FROM Students S WHERE S.firstName = :firstName";
+            String hql = "FROM Teachers S WHERE S.firstNameTeach = :firstName";
             Query query = session.createQuery(hql);
-            query.setParameter("firstName",firstName);
+            query.setParameter("firstName", name);
             List results = query.list();
 
             return results;
@@ -86,64 +85,42 @@ public class StudentRepositoryImpl implements StudentRepository{
     }
 
     @Override
-    public List<Student> sortByCredits() {
+    public List<Teacher> sortByDisciplines() {
         try (Session session = sessionFactory.openSession()){
-            Query<Student> query = session.createQuery("from Students order by credits desc");
+            Query<Teacher> query = session.createQuery("from Teachers order by disciplineCount desc");
             return query.list();
         }
     }
 
     @Override
-    public List<Student> sortByFirstName() {
+    public List<Teacher> sortByFirstName() {
         try (Session session = sessionFactory.openSession()){
-            Query<Student> query = session.createQuery("from Students order by firstName asc");
+            Query<Teacher> query = session.createQuery("from Teachers order by firstNameTeach asc");
             return query.list();
         }
     }
 
     @Override
-    public List<Student> sortByLastName() {
+    public List<Teacher> sortByLastName() {
         try (Session session = sessionFactory.openSession()){
-            Query<Student> query = session.createQuery("from Students order by lastName");
-            return query.list();
-        }
-    }
-
-
-    @Override
-    public List<Student> filterByYearInUni(int yearInUniv) {
-       if (yearInUniv <=0 || yearInUniv >= 5){
-         return getAll();
-      }
-
-    try (Session session = sessionFactory.openSession()){
-
-            String hql = "FROM Students S WHERE S.yearInUni = :yearInUniv";
-            Query query = session.createQuery(hql);
-            query.setParameter("yearInUniv",yearInUniv);
-            List results = query.list();
-
-            return results;
-
-        }
-    }
-
-    @Override
-    public List<Student> sortByYearInUni() {
-        try (Session session = sessionFactory.openSession()){
-            Query<Student> query = session.createQuery("from Students order by yearInUni asc");
-
+            Query<Teacher> query = session.createQuery("from Teachers order by lastNameTeach");
             return query.list();
         }
     }
 
     @Override
-    public List<Student> top3Students() {
+    public List<Teacher> sortByStudents() {
         try (Session session = sessionFactory.openSession()){
-            Query<Student> query = session.createQuery("from Students order by credits desc");
+            Query<Teacher> query = session.createQuery("from Teachers order by studentsCount desc ");
+            return query.list();
+        }
+    }
+
+    @Override
+    public List<Teacher> top3Teachers() {
+        try (Session session = sessionFactory.openSession()){
+            Query<Teacher> query = session.createQuery("from Teachers order by disciplineCount desc");
             return query.setMaxResults(3).list();
         }
     }
-
-
 }
