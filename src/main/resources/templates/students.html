@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of all students</title>
+
+    <style>
+        .table {
+            display: table;
+        }
+
+        .header {
+            display: table-header-group;
+            font-weight: bold;
+        }
+
+        .rowGroup {
+            display: table-row-group;
+        }
+
+        .row {
+            display: table-row;
+        }
+
+        .cell {
+            display: table-cell;
+            width: 25%;
+        }
+
+        .error {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div th:if="${students.isEmpty()}">
+    <h2 th:text="#{students.emptyTitle}"> No Students!</h2>
+</div>
+<div th:unless="${students.isEmpty()}">
+    <h2 th:text="#{students.title}"> Students</h2>
+
+    <div class="table">
+        <div class="header">
+            <div class="cell" th:text="#{students.header.id}"> Id</div>
+            <div class="cell" th:text="#{students.header.firstname}"> First name</div>
+            <div class="cell" th:text="#{students.header.lastname}"> Last name</div>
+            <div class="cell" th:text="#{students.header.yearinuni}"> Year in Uni</div>
+            <div class="cell" th:text="#{students.header.credits}"> Credits</div>
+            <div class="cell" th:text="#{students.header.studieddisciplines}"> Studied disciplines</div>
+        </div>
+        <div class="row" th:each="student : ${students}">
+            <div class="cell" th:text="${student.id}">Id</div>
+            <div class="cell" th:text="${student.firstName}">FirstName</div>
+            <div class="cell" th:text="${student.lastName}">LastName</div>
+            <div class="cell" th:text="${student.yearInUni}">YearInUni</div>
+            <div class="cell" th:text="${student.credits}">Credits</div>
+            <div class="cell" th:text="${student.countStudies}">Count of studies</div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

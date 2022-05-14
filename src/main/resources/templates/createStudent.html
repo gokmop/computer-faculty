@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new Student!</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/students/__${id != null ? id : 'new'}__}" th:object="${createStudentDto}" method="post">
+    <label th:text="#{students.header.firstname}">First Name</label>
+        <br>
+        <input type="text" th:field="*{firstName}"/>
+        <label class="error" th:errors="*{firstName}"></label>
+        <br>
+    <label th:text="#{students.header.lastname}">Last Name</label>
+    <br>
+        <input type="text" th:field="*{lastName}"/>
+        <label class="error" th:errors="*{lastName}"></label>
+    <br>
+
+    <label th:text="#{students.header.yearinuni}">YearInUni</label>
+    <br>
+        <input type="text" th:field="*{yearInUni}"/>
+        <label class="error" th:errors="*{yearInUni}"></label>
+    <br>
+    <hr>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>
