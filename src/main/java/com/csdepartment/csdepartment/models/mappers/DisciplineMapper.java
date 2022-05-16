@@ -2,6 +2,7 @@ package com.csdepartment.csdepartment.models.mappers;
 
 import com.csdepartment.csdepartment.models.CreateDisciplineDto;
 import com.csdepartment.csdepartment.models.Discipline;
+import com.csdepartment.csdepartment.models.Teacher;
 import com.csdepartment.csdepartment.services.DisciplineService;
 import com.csdepartment.csdepartment.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class DisciplineMapper {
         discipline.setDisciplineName(dto.getDisciplineName());
         discipline.setCredits(dto.getCredits());
         discipline.setTeacher(teacherService.getById(dto.getTeacherId()));
+        int incrementDisciplinesOfTeacher = teacherService.getById(dto.getTeacherId()).getDisciplineCount() + 1;
+        Teacher teacher =  teacherService.getById(dto.getTeacherId());
+        teacher.setDisciplinesCount(incrementDisciplinesOfTeacher);
+        teacherService.update(teacher);
         return discipline;
     }
 }
