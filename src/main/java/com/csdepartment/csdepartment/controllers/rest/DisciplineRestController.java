@@ -3,6 +3,7 @@ package com.csdepartment.csdepartment.controllers.rest;
 import com.csdepartment.csdepartment.exceptions.DuplicateEntityException;
 import com.csdepartment.csdepartment.models.CreateDisciplineDto;
 import com.csdepartment.csdepartment.models.Discipline;
+import com.csdepartment.csdepartment.models.UpdateDisciplineDto;
 import com.csdepartment.csdepartment.models.mappers.DisciplineMapper;
 import com.csdepartment.csdepartment.services.DisciplineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,8 @@ public class DisciplineRestController {
     }
 
     @PutMapping
-    public Discipline update(@RequestBody Discipline discipline){
+    public Discipline update(@RequestBody UpdateDisciplineDto dto){
+        Discipline discipline = mapper.fromUpdateDto(dto);
         service.update(discipline);
         return discipline;
     }
