@@ -3,7 +3,6 @@ package com.csdepartment.csdepartment.repositories;
 import com.csdepartment.csdepartment.models.Student;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface StudentRepository {
 
