@@ -82,4 +82,10 @@ public class Teacher implements TeacherInterface {
     public int getDisciplineCount() {
         return disciplineCount;
     }
+
+    @Override
+    public String toString(){
+        return "Teacher" + "id=" +  id + "Title=" + title + "Name=" + firstNameTeach + " " + lastNameTeach  + "Disciplines count=" + disciplineCount
+                + "Students count=" + studentsCount + "}" ;
+    }
 }

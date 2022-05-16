@@ -1,12 +1,14 @@
 package com.csdepartment.csdepartment.models.contracts;
 
+import com.csdepartment.csdepartment.models.Teacher;
+
 public interface DisciplineInterface {
 
     void setDisciplineName(String disciplineName);
 
     void setCredits(int credits);
 
-    void setTeacher(int teacherId);
+    void setTeacher(Teacher teacherId);
 
     void setStudentsSigned(int studentsCount);
 
@@ -14,7 +16,7 @@ public interface DisciplineInterface {
 
     String getDisciplineName();
 
-    int getTeacherIdForDiscipline();
+    Teacher getTeacher();
 
     int getStudentSigned();
 

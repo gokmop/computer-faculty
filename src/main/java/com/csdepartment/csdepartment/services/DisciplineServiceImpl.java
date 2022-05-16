@@ -18,6 +18,21 @@ public class DisciplineServiceImpl implements DisciplineService{
     }
 
     @Override
+    public void create(Discipline discipline) {
+        repository.create(discipline);
+    }
+
+    @Override
+    public void update(Discipline discipline) {
+        repository.update(discipline);
+    }
+
+    @Override
+    public void delete(Discipline discipline) {
+        repository.delete(discipline);
+    }
+
+    @Override
     public Discipline getById(int id) {
         return repository.getById(id);
     }

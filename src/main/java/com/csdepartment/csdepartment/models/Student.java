@@ -2,7 +2,6 @@ package com.csdepartment.csdepartment.models;
 
 
 import com.csdepartment.csdepartment.models.contracts.StudentInterface;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 

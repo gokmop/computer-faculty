@@ -61,8 +61,8 @@ public class DisciplineRepositoryImpl implements DisciplineRepository{
     @Override
     public List<Discipline> getAll() {
         try (Session session = sessionFactory.openSession()){
-            Query<Discipline> query = session.createQuery("from Disciplines order by disciplineName asc ");
-            return query.list();
+            Query<Discipline> query = session.createQuery("from Disciplines");
+            return query.list(); //.getResultList();
         }
     }
 
@@ -103,7 +103,7 @@ public class DisciplineRepositoryImpl implements DisciplineRepository{
     @Override
     public List<Discipline> sortByTeacher() {
         try (Session session = sessionFactory.openSession()){
-            Query<Discipline> query = session.createQuery("from Disciplines order by teacherID asc ");
+            Query<Discipline> query = session.createQuery("from Disciplines order by teacher.firstNameTeach asc ");
             return query.list();
         }
     }

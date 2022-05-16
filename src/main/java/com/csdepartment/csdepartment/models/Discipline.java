@@ -19,20 +19,22 @@ public class Discipline implements DisciplineInterface {
     @Column(name = "credits")
     private int credits;
 
-    @Column(name = "teacher-pk")
-    private int teacherID;
+    @ManyToOne
+    @JoinColumn(name = "teacher_pk")
+    private Teacher teacher;
 
-    @Column(name = "students-signed")
+    @Column(name = "students_signed")
     private int studentsSigned;
 
     public Discipline() {
     }
 
-    public Discipline(String disciplineName, int credits, int teacherID) {
+    public Discipline(String disciplineName, int credits, Teacher teacher) {
         this.disciplineName = disciplineName;
         this.credits = credits;
-        this.teacherID = teacherID;
-        studentsSigned = 0;
+        this.teacher = teacher;
+        this.studentsSigned = 0;
+
     }
 
     @Override
@@ -46,8 +48,8 @@ public class Discipline implements DisciplineInterface {
     }
 
     @Override
-    public void setTeacher(int teacherId) {
-        this.teacherID = teacherId;
+    public void setTeacher(Teacher teacherId) {
+        this.teacher = teacherId;
     }
 
     @Override
@@ -66,8 +68,8 @@ public class Discipline implements DisciplineInterface {
     }
 
     @Override
-    public int getTeacherIdForDiscipline() {
-        return teacherID;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
     @Override
@@ -78,5 +80,11 @@ public class Discipline implements DisciplineInterface {
     @Override
     public int getCreditsForDiscipline() {
         return credits;
+    }
+
+    @Override
+    public String toString(){
+        return "Discipline" + "id=" + id + "Name=" + disciplineName  + "Credits=" + credits
+                + "Teacher Id=" + teacher.getId() + "Students Signed=" + studentsSigned+ "}" ;
     }
 }

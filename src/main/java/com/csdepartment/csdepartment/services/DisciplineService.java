@@ -6,6 +6,13 @@ import java.util.List;
 
 public interface DisciplineService {
 
+    void create(Discipline discipline);
+
+    void update(Discipline discipline);
+
+    void delete(Discipline discipline);
+
+
     Discipline getById(int id);
 
     List<Discipline> getAll();
