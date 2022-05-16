@@ -1,12 +1,13 @@
 package com.csdepartment.csdepartment.models;
 
 import com.csdepartment.csdepartment.models.contracts.PersonInterface;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class Person implements PersonInterface {
+
+    //Connection to DB not working properly for inheritance classes
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +19,6 @@ public abstract class Person implements PersonInterface {
 
     @Column(name = "last_name")
     private String lastName;
-
-    @Autowired
-
 
     @Override
     public void setFirstName(String firstName) {
