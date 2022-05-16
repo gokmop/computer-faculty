@@ -1,7 +1,6 @@
 package com.csdepartment.csdepartment.repositories;
 
 import com.csdepartment.csdepartment.models.Discipline;
-import com.csdepartment.csdepartment.models.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -62,7 +61,7 @@ public class DisciplineRepositoryImpl implements DisciplineRepository{
     @Override
     public List<Discipline> getAll() {
         try (Session session = sessionFactory.openSession()){
-            Query<Discipline> query = session.createQuery("from Disciplines order by disciplineName");
+            Query<Discipline> query = session.createQuery("from Disciplines order by disciplineName asc ");
             return query.list();
         }
     }
