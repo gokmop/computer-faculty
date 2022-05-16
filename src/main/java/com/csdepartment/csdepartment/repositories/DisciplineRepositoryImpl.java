@@ -15,6 +15,7 @@ public class DisciplineRepositoryImpl implements DisciplineRepository{
 
     private final SessionFactory sessionFactory;
 
+
     @Autowired
     public DisciplineRepositoryImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -24,6 +25,7 @@ public class DisciplineRepositoryImpl implements DisciplineRepository{
     @Override
     public void create(Discipline discipline) {
         try(Session session = sessionFactory.openSession()){
+
             session.save(discipline);
         }
     }

@@ -1,7 +1,9 @@
 package com.csdepartment.csdepartment.controllers.rest;
 
 import com.csdepartment.csdepartment.exceptions.DuplicateEntityException;
+import com.csdepartment.csdepartment.models.CreateDisciplineDto;
 import com.csdepartment.csdepartment.models.Discipline;
+import com.csdepartment.csdepartment.models.mappers.DisciplineMapper;
 import com.csdepartment.csdepartment.services.DisciplineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,10 +19,12 @@ import java.util.List;
 public class DisciplineRestController {
 
     private final DisciplineService service;
+    private final DisciplineMapper mapper;
 
     @Autowired
-    public DisciplineRestController(DisciplineService service) {
+    public DisciplineRestController(DisciplineService service, DisciplineMapper mapper) {
         this.service = service;
+        this.mapper = mapper;
     }
 
     @GetMapping
@@ -38,8 +42,9 @@ public class DisciplineRestController {
     }
 
     @PostMapping
-    public Discipline create(@RequestBody Discipline discipline){
+    public Discipline create(@RequestBody CreateDisciplineDto dto){
         try{
+            Discipline discipline = mapper.fromDto(dto);
             service.create(discipline);
             return discipline;
         }catch (DuplicateEntityException e){
