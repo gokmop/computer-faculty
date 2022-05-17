@@ -4,6 +4,8 @@ package com.csdepartment.csdepartment.models;
 import com.csdepartment.csdepartment.models.contracts.StudentInterface;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Students")
 @Table(name = "students")
@@ -28,6 +30,9 @@ public class Student implements StudentInterface {
    @Column(name = "count_of_studies")
    private int countStudies;
 
+ //  @OneToMany(mappedBy = "student")
+  // private Set<Discipline> studiedDisciplines;
+
     public Student() {
     }
 
@@ -38,6 +43,7 @@ public class Student implements StudentInterface {
         this.yearInUni = yearInUni;
         credits = 0;
         countStudies = 0;
+       // studiedDisciplines = new HashSet<>();
     }
 
 

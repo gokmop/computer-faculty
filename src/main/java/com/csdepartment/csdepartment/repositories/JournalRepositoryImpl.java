@@ -36,7 +36,7 @@ public class JournalRepositoryImpl implements JournalRepository{
     public void create(Journal journal) {
         try (Session session = sessionFactory.openSession()){
             session.beginTransaction();
-            session.update(journal);
+            session.save(journal);
             session.getTransaction().commit();
         }
     }
@@ -75,7 +75,7 @@ public class JournalRepositoryImpl implements JournalRepository{
     public List<Journal> getAll() {
         try (Session session = sessionFactory.openSession()){
             Query<Journal> query = session.createQuery("from Journal");
-            return query.list();
+            return query.getResultList();
         }
     }
 

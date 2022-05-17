@@ -22,4 +22,8 @@ public interface TeacherInterface {
 
     String toString();
 
+    void setStudentsCount(int studentsCount);
+
+    int getStudentsCount();
+
 }

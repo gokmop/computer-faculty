@@ -88,4 +88,14 @@ public class Teacher implements TeacherInterface {
         return "Teacher" + "id=" +  id + "Title=" + title + "Name=" + firstNameTeach + " " + lastNameTeach  + "Disciplines count=" + disciplineCount
                 + "Students count=" + studentsCount + "}" ;
     }
+
+    @Override
+    public void setStudentsCount(int studentsCount) {
+        this.studentsCount = studentsCount;
+    }
+
+    @Override
+    public int getStudentsCount() {
+        return studentsCount;
+    }
 }

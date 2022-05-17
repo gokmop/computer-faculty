@@ -3,6 +3,8 @@ package com.csdepartment.csdepartment.models;
 import com.csdepartment.csdepartment.models.contracts.DisciplineInterface;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Disciplines")
 @Table(name = "disciplines")
@@ -26,6 +28,9 @@ public class Discipline implements DisciplineInterface {
     @Column(name = "students_signed")
     private int studentsSigned;
 
+   // @OneToMany(mappedBy = "disciplines")
+  //  private Set<Student> signedStudents;
+
     public Discipline() {
     }
 
@@ -33,7 +38,7 @@ public class Discipline implements DisciplineInterface {
         this.disciplineName = disciplineName;
         this.credits = credits;
         this.teacher = teacher;
-        this.studentsSigned = 0;
+        //signedStudents = new HashSet<>();
 
     }
 

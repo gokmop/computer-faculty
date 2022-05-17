@@ -27,4 +27,10 @@ public interface TeacherRepository {
     List<Teacher> sortByStudents();
 
     List<Teacher> top3Teachers();
+
+    int getStudentsCount(int id);
+
+    int getStudiesCount(int id);
+
+
 }

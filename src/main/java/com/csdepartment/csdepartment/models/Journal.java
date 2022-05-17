@@ -14,11 +14,11 @@ public class Journal implements JournalInterface {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "discipline-fk")
+    @JoinColumn(name = "discipline_fk")
     private Discipline discipline;
 
     @ManyToOne
-    @JoinColumn(name = "student-fk")
+    @JoinColumn(name = "student_fk")
     private Student student;
 
     public Journal() {

@@ -71,4 +71,14 @@ public class TeacherServiceImpl implements TeacherService{
     public List<Teacher> top3Teachers() {
         return repository.top3Teachers();
     }
+
+    @Override
+    public int getStudentsCount(int id) {
+        return repository.getStudentsCount(id);
+    }
+
+    @Override
+    public int getStudiesCount(int id) {
+        return repository.getStudiesCount(id);
+    }
 }

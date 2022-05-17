@@ -122,4 +122,21 @@ public class TeacherRepositoryImpl implements TeacherRepository{
             return query.setMaxResults(3).list();
         }
     }
+
+    @Override
+    public int getStudentsCount(int id) {
+        try (Session session = sessionFactory.openSession()){
+            int studentsCount = getById(id).getStudentsCount();
+            return studentsCount;
+        }
+
+    }
+
+    @Override
+    public int getStudiesCount(int id) {
+        try (Session session = sessionFactory.openSession()){
+            int studiesCount= getById(id).getDisciplineCount();
+            return studiesCount;
+        }
+    }
 }
