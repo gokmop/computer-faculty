@@ -8,27 +8,57 @@
             color: red;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<form action="#" th:action="@{/students/__${id != null ? id : 'new'}__}" th:object="${createStudentDto}" method="post">
-    <label th:text="#{students.header.firstname}">First Name</label>
-        <br>
-        <input type="text" th:field="*{firstName}"/>
-        <label class="error" th:errors="*{firstName}"></label>
-        <br>
-    <label th:text="#{students.header.lastname}">Last Name</label>
-    <br>
-        <input type="text" th:field="*{lastName}"/>
-        <label class="error" th:errors="*{lastName}"></label>
-    <br>
 
-    <label th:text="#{students.header.yearinuni}">YearInUni</label>
-    <br>
-        <input type="text" th:field="*{yearInUni}"/>
-        <label class="error" th:errors="*{yearInUni}"></label>
-    <br>
-    <hr>
-    <input type="submit" value="Save">
-</form>
+<div class="container">
+    <div class="row" style="alignment: center">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="h2">Create Student Form</div>
+            <hr>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+        <form action="#" th:action="@{/students/__${id != null ? id : 'new'}__}" th:object="${createStudentDto}" method="post">
+            <div class="form-group">
+                <label th:text="#{students.header.firstname}">First Name</label>
+                 <br>
+                <input type="text" class="form-control" th:field="*{firstName}" placeholder="Enter First Name" required/>
+                <label class="error" th:errors="*{firstName}"></label>
+            </div>
+            <div class="form-group">
+                <label th:text="#{students.header.lastname}">Last Name</label>
+                <br>
+                <input type="text" class="form-control" th:field="*{lastName}" placeholder="Enter Last Name" required/>
+                <label class="error" th:errors="*{lastName}"></label>
+            </div>
+            <div class="form-group">
+                <label th:text="#{students.header.yearinuni}">YearInUni</label>
+                <br>
+                <input type="number" class="form-control" th:field="*{yearInUni}" placeholder="Enter Year in University" required min="1" max="4"/>
+                <label class="error" th:errors="*{yearInUni}"></label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save Student</button>
+            </div>
+        </form>
+
+        <div class="col-4"></div>
+        </div>
+    </div>
+</div>
+
+<!--Imports of Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 </html>
