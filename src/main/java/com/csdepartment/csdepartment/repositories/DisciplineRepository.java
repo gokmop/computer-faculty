@@ -1,6 +1,5 @@
 package com.csdepartment.csdepartment.repositories;
 
-import com.csdepartment.csdepartment.models.CreateDisciplineDto;
 import com.csdepartment.csdepartment.models.Discipline;
 
 import java.util.List;

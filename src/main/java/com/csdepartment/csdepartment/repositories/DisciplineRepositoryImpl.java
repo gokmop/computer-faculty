@@ -64,7 +64,7 @@ public class DisciplineRepositoryImpl implements DisciplineRepository{
     public List<Discipline> getAll() {
         try (Session session = sessionFactory.openSession()){
             Query<Discipline> query = session.createQuery("from Disciplines");
-            return query.list(); //.getResultList();
+            return query.list();
         }
     }
 

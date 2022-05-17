@@ -1,6 +1,6 @@
 package com.csdepartment.csdepartment.controllers.mvc;
 
-import com.csdepartment.csdepartment.models.CreateStudentDto;
+import com.csdepartment.csdepartment.models.dto.CreateStudentDto;
 import com.csdepartment.csdepartment.models.Student;
 import com.csdepartment.csdepartment.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,9 @@
 package com.csdepartment.csdepartment.controllers.rest;
 
 import com.csdepartment.csdepartment.exceptions.DuplicateEntityException;
-import com.csdepartment.csdepartment.models.CreateDisciplineDto;
+import com.csdepartment.csdepartment.models.dto.CreateDisciplineDto;
 import com.csdepartment.csdepartment.models.Discipline;
-import com.csdepartment.csdepartment.models.UpdateDisciplineDto;
+import com.csdepartment.csdepartment.models.dto.UpdateDisciplineDto;
 import com.csdepartment.csdepartment.models.mappers.DisciplineMapper;
 import com.csdepartment.csdepartment.services.DisciplineService;
 import org.springframework.beans.factory.annotation.Autowired;

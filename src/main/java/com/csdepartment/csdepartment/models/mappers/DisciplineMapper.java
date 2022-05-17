@@ -1,9 +1,9 @@
 package com.csdepartment.csdepartment.models.mappers;
 
-import com.csdepartment.csdepartment.models.CreateDisciplineDto;
+import com.csdepartment.csdepartment.models.dto.CreateDisciplineDto;
 import com.csdepartment.csdepartment.models.Discipline;
 import com.csdepartment.csdepartment.models.Teacher;
-import com.csdepartment.csdepartment.models.UpdateDisciplineDto;
+import com.csdepartment.csdepartment.models.dto.UpdateDisciplineDto;
 import com.csdepartment.csdepartment.services.DisciplineService;
 import com.csdepartment.csdepartment.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,11 @@
-package com.csdepartment.csdepartment.models;
+package com.csdepartment.csdepartment.models.dto;
 
-public class CreateDisciplineDto {
+import org.springframework.stereotype.Component;
+
+
+public class UpdateDisciplineDto {
+
+    private int id;
 
     private String disciplineName;
 
@@ -8,7 +13,13 @@ public class CreateDisciplineDto {
 
     private int teacherId;
 
-    public CreateDisciplineDto() {
+    private int countStudentsSigned;
+
+    public UpdateDisciplineDto() {
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getDisciplineName() {
@@ -23,6 +34,14 @@ public class CreateDisciplineDto {
         return teacherId;
     }
 
+    public int getCountStudentsSigned() {
+        return countStudentsSigned;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setDisciplineName(String disciplineName) {
         this.disciplineName = disciplineName;
     }
@@ -33,5 +52,9 @@ public class CreateDisciplineDto {
 
     public void setTeacherId(int teacherId) {
         this.teacherId = teacherId;
+    }
+
+    public void setCountStudentsSigned(int countStudentsSigned) {
+        this.countStudentsSigned = countStudentsSigned;
     }
 }

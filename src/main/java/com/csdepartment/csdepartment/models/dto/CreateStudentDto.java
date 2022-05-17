@@ -1,4 +1,4 @@
-package com.csdepartment.csdepartment.models;
+package com.csdepartment.csdepartment.models.dto;
 
 public class CreateStudentDto {
 
