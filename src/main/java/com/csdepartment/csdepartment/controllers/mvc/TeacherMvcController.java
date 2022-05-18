@@ -1,5 +1,8 @@
 package com.csdepartment.csdepartment.controllers.mvc;
 
+import com.csdepartment.csdepartment.models.Teacher;
+import com.csdepartment.csdepartment.models.dto.CreateTeacherDto;
+import com.csdepartment.csdepartment.models.mappers.TeacherMapper;
 import com.csdepartment.csdepartment.services.DisciplineService;
 import com.csdepartment.csdepartment.services.JournalService;
 import com.csdepartment.csdepartment.services.StudentService;
@@ -7,7 +10,10 @@ import com.csdepartment.csdepartment.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -22,12 +28,15 @@ public class TeacherMvcController {
 
     private final StudentService studentService;
 
+    private final TeacherMapper teacherMapper;
+
     @Autowired
-    public TeacherMvcController(TeacherService teacherService, JournalService journalService, DisciplineService disciplineService, StudentService studentService) {
+    public TeacherMvcController(TeacherService teacherService, JournalService journalService, DisciplineService disciplineService, StudentService studentService, TeacherMapper teacherMapper) {
         this.teacherService = teacherService;
         this.journalService = journalService;
         this.disciplineService = disciplineService;
         this.studentService = studentService;
+        this.teacherMapper = teacherMapper;
     }
 
     @GetMapping
@@ -59,5 +68,26 @@ public class TeacherMvcController {
         model.addAttribute("teachers", teacherService.top3Teachers());
         return "teachers-order-by-top-3";
     }
+
+    @GetMapping("/new")
+    public String getCreateTeacherPage(Model model){
+       model.addAttribute("CreateTeacherDto", new CreateTeacherDto());
+       return "create-teacher";
+    }
+
+    @PostMapping("/new")
+    public String handleCreateTeacher(@ModelAttribute CreateTeacherDto dto, BindingResult bindingResult, Model model){
+        model.addAttribute("CreateTeacherDto", new CreateTeacherDto());
+        if (bindingResult.hasErrors()){
+            return "create-teacher";
+        }
+        Teacher teacherToCreate = teacherMapper.fromDto(dto);
+
+        model.addAttribute("service", teacherService.getAll());
+
+        return "redirect:/teachers";
+    }
+
+
 
 }
