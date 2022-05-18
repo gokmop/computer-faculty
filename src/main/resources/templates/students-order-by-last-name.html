@@ -53,34 +53,6 @@
 
 <br>
 
-<!--Old working table
-<div th:if="${students.isEmpty()}">
-    <h2 th:text="#{students.emptyTitle}"> No Students!</h2>
-</div>
-<div th:unless="${students.isEmpty()}">
-    <h2 th:text="#{students.title}"> Students</h2>
-
-    <div class="table">
-        <div class="header">
-            <div class="cell" th:text="#{students.header.id}"> Id</div>
-            <div class="cell" th:text="#{students.header.firstname}"> First name</div>
-            <div class="cell" th:text="#{students.header.lastname}"> Last name</div>
-            <div class="cell" th:text="#{students.header.yearinuni}"> Year in Uni</div>
-            <div class="cell" th:text="#{students.header.credits}"> Credits</div>
-            <div class="cell" th:text="#{students.header.studieddisciplines}"> Studied disciplines</div>
-        </div>
-        <div class="row" th:each="student : ${students}">
-            <div class="cell" th:text="${student.id}">Id</div>
-            <div class="cell" th:text="${student.firstName}">FirstName</div>
-            <div class="cell" th:text="${student.lastName}">LastName</div>
-            <div class="cell" th:text="${student.yearInUni}">YearInUni</div>
-            <div class="cell" th:text="${student.credits}">Credits</div>
-            <div class="cell" th:text="${student.countStudies}">Count of studies</div>
-        </div>
-
-    </div>
-</div>
--->
 <!--Imports of Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
