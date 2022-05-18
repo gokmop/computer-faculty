@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments html code for use in front end CS Department</title>
+</head>
+<body>
+
+<!--Header Menu Fragment -->
+<div th:fragment="top-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="http://localhost:8080">CS Department</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkTeachers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Teachers
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Add new teacher</a>
+                        <a class="dropdown-item" href="#">Show all teacher</a>
+                        <a class="dropdown-item" href="#">Filter teachers by name</a>
+                        <a class="dropdown-item" href="#">Filter teachers by students</a>
+                        <a class="dropdown-item" href="#">Filter teachers by disciplines</a>
+                        <a class="dropdown-item" href="#">Top 3 teachers</a>
+                        <a class="dropdown-item" href="#">Update teacher</a>
+
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkDisciplines" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Disciplines
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Add new discipline</a>
+                        <a class="dropdown-item" href="#">Show all disciplines</a>
+                        <a class="dropdown-item" href="#">Filter disciplines by name</a>
+                        <a class="dropdown-item" href="#">Filter disciplines by students</a>
+                        <a class="dropdown-item" href="#">Top 3 disciplines</a>
+                        <a class="dropdown-item" href="#">Update discipline</a>
+
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkStudents" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Students
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="http://localhost:8080/students/new">Signup student</a>
+                        <a class="dropdown-item" href="http://localhost:8080/students">List of students</a>
+                        <a class="dropdown-item" href="#">View profile of student</a>
+                        <a class="dropdown-item" href="#">Top 3 students by credits</a>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
