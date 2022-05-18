@@ -31,7 +31,9 @@ public class TeacherMvcController {
     private final TeacherMapper teacherMapper;
 
     @Autowired
-    public TeacherMvcController(TeacherService teacherService, JournalService journalService, DisciplineService disciplineService, StudentService studentService, TeacherMapper teacherMapper) {
+    public TeacherMvcController(TeacherService teacherService, JournalService journalService,
+                                DisciplineService disciplineService, StudentService studentService,
+                                TeacherMapper teacherMapper) {
         this.teacherService = teacherService;
         this.journalService = journalService;
         this.disciplineService = disciplineService;
