@@ -31,6 +31,7 @@
                 <th scope="col">Year in Uni</th>
                 <th scope="col">Credits</th>
                 <th scope="col">Count of Studies</th>
+                <th scope="col">Link to Profile</th>
             </tr>
             </thead>
             <tbody>
@@ -41,6 +42,9 @@
                 <td class="cell" th:text="${student.yearInUni}">YearInUni</td>
                 <td class="cell" th:text="${student.credits}">Credits</td>
                 <td class="cell" th:text="${student.countStudies}">Count of studies</td>
+                <td class="cell">
+                    <a class="btn btn-success"  th:href="@{/students/__${student.id}__}" role="button"> View Profile</a>
+                </td>
             </tr>
             </tbody>
         </table>

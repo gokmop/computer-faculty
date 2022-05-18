@@ -35,7 +35,7 @@ public class StudentMvcController {
     @GetMapping
     public String showAllStudentsPage(Model model){
         model.addAttribute("students", studentService.getAll());
-        return "students";
+        return "students-order-by-first-name";
     }
 
     @GetMapping("last-name")
