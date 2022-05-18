@@ -31,4 +31,16 @@ public class DisciplineMvcController {
         model.addAttribute("disciplines", disciplineService.getAll());
         return "disciplines-order-by-name";
     }
+
+    @GetMapping("/students")
+    public String sortAllDisciplinesByStudentsCount(Model model){
+        model.addAttribute("disciplines", disciplineService.sortByStudentsSigned());
+        return "disciplines-order-by-students";
+    }
+
+    @GetMapping("/top-3")
+    public String top3DisciplinesByStudents(Model model){
+        model.addAttribute("disciplines", disciplineService.top3Disciplines());
+        return "disciplines-order-by-top-3";
+    }
 }
