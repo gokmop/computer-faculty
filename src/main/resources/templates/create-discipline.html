@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new Discipline!</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="fragments/general.html :: top-menu"></div>
+<br>
+
+<div class="container">
+    <div class="row" style="alignment: center">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="h2" style="justify-content: center">Create Discipline Form</div>
+            <hr>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+        <form action="#" th:action="@{/disciplines/__${id != null ? id : 'new'}__}" th:object="${CreateDisciplineDto}" method="post">
+            <div class="form-group">
+                <label>Name</label>
+                 <br>
+                <input type="text" class="form-control" th:field="*{disciplineName}" placeholder="Enter Discipline Name" required/>
+                <label class="error" th:errors="*{disciplineName}"></label>
+            </div>
+            <div class="form-group">
+                <label>Credits</label>
+                <br>
+                <input type="number" class="form-control" th:field="*{credits}" placeholder="Enter Credits for Discipline" required min="1" max="50"/>
+                <label class="error" th:errors="*{credits}"></label>
+            </div>
+            <div class="form-group">
+                <label>Select Teacher</label>
+                <br>
+                <select th:field="*{teacherId}" class="custom-select" id="teacher-select">
+                    <option value="0">Select teacher</option>
+                    <option th:each="teacher : ${teachers}" th:value="${teacher.id}"
+                            th:text="| 'ID:'${teacher.getId()} 'Name:' ${teacher.getFirstName()} ${teacher.getLastName()}|">Teacher</option>
+                </select>
+                <label class="error" th:errors="*{teacherId}"></label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save Discipline</button>
+            </div>
+        </form>
+
+        <div class="col-4"></div>
+        </div>
+    </div>
+</div>
+
+<!--Imports of Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>
