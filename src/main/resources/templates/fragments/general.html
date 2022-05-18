@@ -8,7 +8,7 @@
 
 <!--Header Menu Fragment -->
 <div th:fragment="top-menu">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand" href="http://localhost:8080">CS Department</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,9 +54,12 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="http://localhost:8080/students/new">Signup student</a>
-                        <a class="dropdown-item" href="http://localhost:8080/students">List of students</a>
+                        <a class="dropdown-item" href="http://localhost:8080/students">List sort by First Name</a>
+                        <a class="dropdown-item" href="http://localhost:8080/students/last-name">List sort by Last Name</a>
+                        <a class="dropdown-item" href="http://localhost:8080/students/year-in-uni">List sort by Year in Uni</a>
+                        <a class="dropdown-item" href="http://localhost:8080/students/credits">List sort by Credits</a>
                         <a class="dropdown-item" href="#">View profile of student</a>
-                        <a class="dropdown-item" href="#">Top 3 students by credits</a>
+                        <a class="dropdown-item" href="http://localhost:8080/students/top-3">Top 3 students by credits</a>
 
                     </div>
                 </li>
