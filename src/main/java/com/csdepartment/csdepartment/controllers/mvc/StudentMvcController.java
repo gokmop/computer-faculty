@@ -1,26 +1,35 @@
 package com.csdepartment.csdepartment.controllers.mvc;
 
-import com.csdepartment.csdepartment.models.dto.CreateStudentDto;
+import com.csdepartment.csdepartment.models.Journal;
 import com.csdepartment.csdepartment.models.Student;
+import com.csdepartment.csdepartment.models.dto.CreateStudentDto;
+import com.csdepartment.csdepartment.services.DisciplineService;
+import com.csdepartment.csdepartment.services.JournalService;
 import com.csdepartment.csdepartment.services.StudentService;
+import com.csdepartment.csdepartment.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/students")
 public class StudentMvcController {
 
     private final StudentService studentService;
+    private final JournalService journalService;
+    private final TeacherService teacherService;
+    private final DisciplineService disciplineService;
 
     @Autowired
-    public StudentMvcController(StudentService studentService) {
+    public StudentMvcController(StudentService studentService, JournalService journalService, TeacherService teacherService, DisciplineService disciplineService) {
         this.studentService = studentService;
+        this.journalService = journalService;
+        this.teacherService = teacherService;
+        this.disciplineService = disciplineService;
     }
 
     @GetMapping
@@ -58,6 +67,20 @@ public class StudentMvcController {
         model.addAttribute("createStudentDto", new CreateStudentDto());
         return "createStudent";
     }
+
+    @GetMapping("/{id}")
+    public String getStudentProfile(@PathVariable Integer id, Model model){
+        Student student = studentService.getById(id);
+        List<Journal> listOfDisciplines = journalService.filterByStudentId(id);
+
+
+        model.addAttribute("student", studentService.getById(id));
+        model.addAttribute("journal", listOfDisciplines);
+
+
+        return "student-profile";
+    }
+
 
     @PostMapping("/new")
     public String handleCreateStudent(@ModelAttribute CreateStudentDto dto, BindingResult bindingResult, Model model){

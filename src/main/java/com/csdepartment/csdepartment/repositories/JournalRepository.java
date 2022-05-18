@@ -18,6 +18,8 @@ public interface JournalRepository {
 
     List<Journal> filterByDisciplineId(int disciplineId);
 
+    List<Journal> filterByStudentId(int studentId);
+
 
 }
 

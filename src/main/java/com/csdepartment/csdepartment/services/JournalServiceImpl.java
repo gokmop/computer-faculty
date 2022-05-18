@@ -46,4 +46,11 @@ public class JournalServiceImpl implements JournalService {
     public List<Journal> filterByDisciplineId(int disciplineId) {
         return repository.filterByDisciplineId(disciplineId);
     }
+
+    @Override
+    public List<Journal> filterByStudentId(int studentId) {
+        return repository.filterByStudentId(studentId);
+    }
+
+
 }

@@ -87,4 +87,13 @@ public class JournalRepositoryImpl implements JournalRepository{
             return query.list();
         }
     }
+
+    @Override
+    public List<Journal> filterByStudentId(int studentId) {
+        try(Session session = sessionFactory.openSession()){
+            Query<Journal> query = session.createQuery("from Journal where student.id = :studentId");
+            query.setParameter("studentId", studentId);
+            return query.list();
+        }
+    }
 }
