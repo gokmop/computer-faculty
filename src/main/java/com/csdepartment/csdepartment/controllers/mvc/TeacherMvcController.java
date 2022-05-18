@@ -1,5 +1,6 @@
 package com.csdepartment.csdepartment.controllers.mvc;
 
+import com.csdepartment.csdepartment.models.Discipline;
 import com.csdepartment.csdepartment.models.Teacher;
 import com.csdepartment.csdepartment.models.dto.CreateTeacherDto;
 import com.csdepartment.csdepartment.models.mappers.TeacherMapper;
@@ -11,10 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/teachers")
@@ -88,6 +88,14 @@ public class TeacherMvcController {
         return "redirect:/teachers";
     }
 
+    @GetMapping("/{id}")
+    public String getTeacherProfile(@PathVariable Integer id, Model model){
+        Teacher teacher = teacherService.getById(id);
+        List<Discipline> listOfDisciplines = disciplineService.filterByTeacherId(id);
 
+        model.addAttribute("teacher", teacher);
+        model.addAttribute("disciplines", listOfDisciplines);
+        return "teacher-profile";
+    }
 
 }

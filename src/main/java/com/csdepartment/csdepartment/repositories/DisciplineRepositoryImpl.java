@@ -117,4 +117,13 @@ public class DisciplineRepositoryImpl implements DisciplineRepository{
             return query.setMaxResults(3).list();
         }
     }
+
+    @Override
+    public List<Discipline> filterByTeacherId(int teacherId) {
+        try(Session session = sessionFactory.openSession()){
+            Query<Discipline> query = session.createQuery("from Disciplines where teacher.id = :teacherId");
+            query.setParameter("teacherId", teacherId);
+            return query.list();
+        }
+    }
 }

@@ -66,4 +66,9 @@ public class DisciplineServiceImpl implements DisciplineService{
     public List<Discipline> top3Disciplines() {
         return repository.top3Disciplines();
     }
+
+    @Override
+    public List<Discipline> filterByTeacherId(int teacherId) {
+        return repository.filterByTeacherId(teacherId);
+    }
 }

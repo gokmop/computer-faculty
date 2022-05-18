@@ -27,4 +27,6 @@ public interface DisciplineService {
 
     List<Discipline> top3Disciplines();
 
+    List<Discipline> filterByTeacherId(int teacherId);
+
 }

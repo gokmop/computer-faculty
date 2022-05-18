@@ -26,5 +26,7 @@ public interface DisciplineRepository {
 
     List<Discipline> top3Disciplines();
 
+    List<Discipline> filterByTeacherId(int studentId);
+
 
 }
