@@ -57,7 +57,7 @@ Application has the following features
        ![Teachers-CreateTeacherForm](https://user-images.githubusercontent.com/16288903/169315853-96ac6895-e788-4fd9-8983-4743c5cdc65a.jpg)
         </details>  
         </p>
-   - Sort Teachers By First Name.
+    - Sort Teachers By First Name.
 	<p>
         <details>
         <summary>Image Click</summary>    
@@ -71,7 +71,7 @@ Application has the following features
        ![Teachers-Sort-By-Last-Name](https://user-images.githubusercontent.com/16288903/169316624-1c0949b4-e026-40b5-8247-c77e851e6d96.jpg)
         </details>  
         </p>
-   - Sort Teachers By Students taught
+    - Sort Teachers By Students taught
 	<p>
         <details>
         <summary>Image Click</summary>    
@@ -85,7 +85,7 @@ Application has the following features
        ![Teachers-Sort-By-Top3](https://user-images.githubusercontent.com/16288903/169317371-3ca76733-519e-48a1-9922-31abc1ed3b32.jpg)
         </details>  
         </p>
-	- Teacher Profile View
+    - Teacher Profile View
 	<p>
         <details>
         <summary>Image Click</summary>    
@@ -94,14 +94,14 @@ Application has the following features
         </p>
 	
 3. Discipline Controls and Views.
- 	- Disciplines Create Form - created with Name, Credits, Teacher.
+    - Disciplines Create Form - created with Name, Credits, Teacher.
 	<p>
         <details>
         <summary>Image Click</summary>    
        ![Discipline-Create-Form](https://user-images.githubusercontent.com/16288903/169318780-c2d002c6-ef5b-40ca-b150-737d5abc8862.jpg)
         </details>  
         </p>
-	- Disciplines Ordered By Name
+    - Disciplines Ordered By Name
 	<p>
         <details>
         <summary>Image Click</summary>    
