@@ -8,8 +8,8 @@ Application has the following features
     - Create Student Form - can be created with First Name, Last Name, Year in University provided in form.
         <p>
         <details>
-        <summary>Image Click</summary>    
-       [ ![alt text](https://github.com/gokmop/computer-faculty/blob/c7385efe492c035e14c9471747b917a9a81b3101/Info-For-Project/Front%20End%20Views/Student-CreateForm.jpg "Student-CreateForm")](https://raw.githubusercontent.com/gokmop/computer-faculty/c7385efe492c035e14c9471747b917a9a81b3101/Info-For-Project/Front%20End%20Views/Student-Sort-By-Top3.jpg?token=GHSAT0AAAAAABUR7N5HVXPESA3QZ3GTTCU4YUGJ3DA)
+        ![Student-CreateForm](https://user-images.githubusercontent.com/16288903/169313541-b96676af-24fe-4e3f-ad20-75b627a90795.jpg)
+
         </details>  
         </p>
     - Sort Students by First Name.
