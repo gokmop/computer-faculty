@@ -65,7 +65,7 @@ public class StudentMvcController {
     @GetMapping("/new")
     public String getCreateStudentPage(Model model){
         model.addAttribute("createStudentDto", new CreateStudentDto());
-        return "createStudent";
+        return "create-student";
     }
 
     @GetMapping("/{id}")
@@ -86,7 +86,7 @@ public class StudentMvcController {
     public String handleCreateStudent(@ModelAttribute CreateStudentDto dto, BindingResult bindingResult, Model model){
         model.addAttribute("createStudentDto", new CreateStudentDto());
         if (bindingResult.hasErrors()){
-            return "createStudent";
+            return "create-student";
         }
         Student studentToCreate = toStudent(dto);
         studentService.create(studentToCreate);

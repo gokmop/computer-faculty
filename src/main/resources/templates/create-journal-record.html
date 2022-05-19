@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create new Discipline!</title>
+    <title>Sign Student for Discipline!</title>
     <style>
         .error {
             color: red;
@@ -19,7 +19,7 @@
     <div class="row" style="alignment: center">
         <div class="col-4"></div>
         <div class="col-4">
-            <div class="h2" style="justify-content: center">Create Discipline Form</div>
+            <div class="h2" style="justify-content: center">Signup Student for Discipline</div>
             <hr>
         </div>
         <div class="col-4"></div>
@@ -28,31 +28,30 @@
         <div class="col-4"></div>
         <div class="col-4">
 
-        <form action="#" th:action="@{/disciplines/__${id != null ? id : 'new'}__}" th:object="${CreateDisciplineDto}" method="post">
+        <form action="#" th:action="@{/journal/__${id != null ? id : 'new'}__}" th:object="${CreateJournalDto}" method="post">
             <div class="form-group">
-                <label>Name</label>
+                <label>Discipline</label>
                  <br>
-                <input type="text" class="form-control" th:field="*{disciplineName}" placeholder="Enter Discipline Name" required/>
-                <label class="error" th:errors="*{disciplineName}"></label>
-            </div>
-            <div class="form-group">
-                <label>Credits</label>
-                <br>
-                <input type="number" class="form-control" th:field="*{credits}" placeholder="Enter Credits for Discipline" required min="1" max="50"/>
-                <label class="error" th:errors="*{credits}"></label>
-            </div>
-            <div class="form-group">
-                <label>Select Teacher</label>
-                <br>
-                <select th:field="*{teacherId}" class="custom-select" id="teacher-select">
-                    <option value="0">Select teacher</option>
-                    <option th:each="teacher : ${teachers}" th:value="${teacher.id}"
-                            th:text="|Name: ${teacher.getFirstName()} ${teacher.getLastName()} - Id:${teacher.getId()} |">Teacher</option>
+                 <select th:field="*{disciplineId}" class="custom-select" id="discipline-select">
+                    <option value="0">Select Discipline</option>
+                    <option th:each="discipline : ${disciplines}" th:value="${discipline.id}"
+                            th:text="|${discipline.getDisciplineName()}, Id: ${discipline.getId()}, Credits: ${discipline.getCreditsForDiscipline()}|">Discipline</option>
                 </select>
-                <label class="error" th:errors="*{teacherId}"></label>
+                <label class="error" th:errors="*{disciplineId}"></label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Save Discipline</button>
+                <label>Student</label>
+                <br>
+                <select th:field="*{studentId}" class="custom-select" id="student-select">
+                    <option value="0">Select Student</option>
+                    <option th:each="student : ${students}" th:value="${student.id}"
+                            th:text="|Name: ${student.getFirstName()} ${student.getLastName()}, Id:${student.getId()} |">Discipline</option>
+                </select>
+                <label class="error" th:errors="*{disciplineId}"></label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add to Journal</button>
             </div>
         </form>
 

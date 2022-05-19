@@ -38,7 +38,6 @@ public class JournalMapper {
         Teacher teacher = discipline.getTeacher();
         journal.setDiscipline(discipline);
         journal.setStudent(student);
-        journalService.create(journal);
         student.setCredits(student.getCredits() + discipline.getCreditsForDiscipline());
         student.setCountStudies(student.getCountStudies() + 1);
         discipline.setStudentsSigned(discipline.getStudentSigned() + 1);
