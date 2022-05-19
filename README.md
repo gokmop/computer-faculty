@@ -9,7 +9,7 @@ Application has the following features
         <p>
         <details>
         <summary>Image Click</summary>    
-        ![alt text](https://github.com/gokmop/computer-faculty/blob/c7385efe492c035e14c9471747b917a9a81b3101/Info-For-Project/Front%20End%20Views/Student-CreateForm.jpg "Student-CreateForm")
+       [ ![alt text](https://github.com/gokmop/computer-faculty/blob/c7385efe492c035e14c9471747b917a9a81b3101/Info-For-Project/Front%20End%20Views/Student-CreateForm.jpg "Student-CreateForm")](https://raw.githubusercontent.com/gokmop/computer-faculty/c7385efe492c035e14c9471747b917a9a81b3101/Info-For-Project/Front%20End%20Views/Student-Sort-By-Top3.jpg?token=GHSAT0AAAAAABUR7N5HVXPESA3QZ3GTTCU4YUGJ3DA)
         </details>  
         </p>
     - Sort Students by First Name.
