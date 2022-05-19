@@ -1,6 +1,7 @@
 package com.csdepartment.csdepartment.repositories;
 
 import com.csdepartment.csdepartment.models.Journal;
+import com.csdepartment.csdepartment.models.dto.CreateJournalDto;
 import com.csdepartment.csdepartment.services.DisciplineService;
 import com.csdepartment.csdepartment.services.StudentService;
 import com.csdepartment.csdepartment.services.TeacherService;
@@ -94,6 +95,17 @@ public class JournalRepositoryImpl implements JournalRepository{
             Query<Journal> query = session.createQuery("from Journal where student.id = :studentId");
             query.setParameter("studentId", studentId);
             return query.list();
+        }
+    }
+
+    @Override
+    public Boolean recordDontExist(CreateJournalDto dto) {
+        try(Session session = sessionFactory.openSession()){
+            Query<Journal> query = session.createQuery("from Journal where student.id = :studentId and discipline.id = :disciplineId");
+            query.setParameter("studentId", dto.getStudentId());
+            query.setParameter("disciplineId", dto.getDisciplineId());
+            Boolean recordDoNotExists = query.list().isEmpty();
+            return recordDoNotExists;
         }
     }
 }

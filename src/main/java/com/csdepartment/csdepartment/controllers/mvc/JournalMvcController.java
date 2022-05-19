@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/journal")
@@ -63,7 +60,25 @@ public class JournalMvcController {
         if (bindingResult.hasErrors()){
             return "create-journal-record";
         }
-        journalService.create(journalToCreate);
+        if (journalService.recordDontExist(dto)){
+            journalService.create(journalToCreate);
+            return "redirect:/journal";
+        }else return "create-journal-record";
+
+    }
+    @GetMapping("/delete")
+    private String handleDeleteJournalPage(Model model){
+        model.addAttribute("journals", journalService.getAll());
+        model.addAttribute("disciplines", disciplineService.getAll());
+        model.addAttribute("students", studentService.getAll());
+        return "delete-journal-record";
+    }
+    @RequestMapping("/delete/{id}")
+    public String handleDeleteJournalRecord(@PathVariable int id, Model model){
+        journalMapper.fromDtoDelete(id);
+        model.addAttribute("journal", journalService.getAll());
+        model.addAttribute("disciplines", disciplineService.getAll());
+        model.addAttribute("students", studentService.getAll());
 
         return "redirect:/journal";
     }

@@ -1,6 +1,7 @@
 package com.csdepartment.csdepartment.services;
 
 import com.csdepartment.csdepartment.models.Journal;
+import com.csdepartment.csdepartment.models.dto.CreateJournalDto;
 import com.csdepartment.csdepartment.repositories.JournalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +51,11 @@ public class JournalServiceImpl implements JournalService {
     @Override
     public List<Journal> filterByStudentId(int studentId) {
         return repository.filterByStudentId(studentId);
+    }
+
+    @Override
+    public Boolean recordDontExist(CreateJournalDto dto) {
+        return repository.recordDontExist(dto);
     }
 
 

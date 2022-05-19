@@ -54,7 +54,6 @@ public class JournalMapper {
         Discipline discipline = journal.getDiscipline();
         Student student = journal.getStudent();
         Teacher teacher = discipline.getTeacher();
-        journalService.delete(journal);
         discipline.setStudentsSigned(discipline.getStudentSigned() - 1);
         teacher.setStudentsCount(teacher.getStudentsCount() - 1);
         student.setCredits(student.getCredits() - discipline.getCreditsForDiscipline());
@@ -62,6 +61,7 @@ public class JournalMapper {
         disciplineService.update(discipline);
         studentService.update(student);
         teacherService.update(teacher);
+        journalService.delete(journal);
         return "Journal successfully deleted";
     }
 }

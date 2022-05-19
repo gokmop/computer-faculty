@@ -1,6 +1,7 @@
 package com.csdepartment.csdepartment.repositories;
 
 import com.csdepartment.csdepartment.models.Journal;
+import com.csdepartment.csdepartment.models.dto.CreateJournalDto;
 
 import java.util.List;
 
@@ -19,6 +20,8 @@ public interface JournalRepository {
     List<Journal> filterByDisciplineId(int disciplineId);
 
     List<Journal> filterByStudentId(int studentId);
+
+    Boolean recordDontExist(CreateJournalDto dto);
 
 
 }

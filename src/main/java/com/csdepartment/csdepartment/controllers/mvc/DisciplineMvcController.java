@@ -67,6 +67,7 @@ public class DisciplineMvcController {
 
         disciplineService.create(disciplineToCreate);
 
+
         return "redirect:/disciplines";
     }
 }

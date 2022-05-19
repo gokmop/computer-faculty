@@ -1,6 +1,7 @@
 package com.csdepartment.csdepartment.services;
 
 import com.csdepartment.csdepartment.models.Journal;
+import com.csdepartment.csdepartment.models.dto.CreateJournalDto;
 
 import java.util.List;
 
@@ -19,5 +20,7 @@ public interface JournalService {
     List<Journal> filterByDisciplineId(int disciplineId);
 
     List<Journal> filterByStudentId(int studentId);
+
+    public Boolean recordDontExist(CreateJournalDto dto);
 
 }
