@@ -2,6 +2,9 @@
 
 
 This is the main repository for the "CS-Department" App of Georgi Shutov.
+
+# Basic Application Logic
+![Basic-Structure-Logic](https://user-images.githubusercontent.com/16288903/169324609-90355583-451b-4e79-a8ae-382dddb0875b.jpg)
 Application has the following features:
 
 1. Students Controls and Views.
