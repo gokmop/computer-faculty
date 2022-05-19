@@ -50,14 +50,14 @@ Application has the following features
         </p>
 		
 2. Teacher Controls and Views.
-	- Create Teacher Form.
+    - Create Teacher Form.
 	<p>
         <details>
         <summary>Image Click</summary>    
        ![Teachers-CreateTeacherForm](https://user-images.githubusercontent.com/16288903/169315853-96ac6895-e788-4fd9-8983-4743c5cdc65a.jpg)
         </details>  
         </p>
-	- Sort Teachers By First Name.
+   - Sort Teachers By First Name.
 	<p>
         <details>
         <summary>Image Click</summary>    
@@ -71,7 +71,7 @@ Application has the following features
        ![Teachers-Sort-By-Last-Name](https://user-images.githubusercontent.com/16288903/169316624-1c0949b4-e026-40b5-8247-c77e851e6d96.jpg)
         </details>  
         </p>
-	- Sort Teachers By Students taught
+   - Sort Teachers By Students taught
 	<p>
         <details>
         <summary>Image Click</summary>    
