@@ -42,9 +42,14 @@ public class JournalMapper {
         student.setCountStudies(student.getCountStudies() + 1);
         discipline.setStudentsSigned(discipline.getStudentSigned() + 1);
         teacher.setStudentsCount(teacher.getStudentsCount() + 1);
-        teacherService.update(teacher);
-        studentService.update(student);
-        disciplineService.update(discipline);
+        if (journalService.recordDontExist(dto)){
+            teacherService.update(teacher);
+            studentService.update(student);
+            disciplineService.update(discipline);
+        }
+     //   teacherService.update(teacher);
+     //   studentService.update(student);
+     //   disciplineService.update(discipline);
 
         return journal;
     }

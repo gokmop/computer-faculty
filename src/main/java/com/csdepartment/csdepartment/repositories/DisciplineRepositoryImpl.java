@@ -63,7 +63,7 @@ public class DisciplineRepositoryImpl implements DisciplineRepository{
     @Override
     public List<Discipline> getAll() {
         try (Session session = sessionFactory.openSession()){
-            Query<Discipline> query = session.createQuery("from Disciplines");
+            Query<Discipline> query = session.createQuery("from Disciplines order by disciplineName");
             return query.list();
         }
     }

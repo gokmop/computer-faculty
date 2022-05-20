@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col-4"></div>
     <div class="col-4">
-        <div class="h2"> Journal records </div>
+        <div class="h2"> List of Journal records</div>
     </div>
     <div class="col-4"></div>
 </div>
@@ -37,7 +37,7 @@
             <tr th:each="record : ${journalRecords}">
                 <td th:text="${record.id}">Id</td>
                 <td class="cell" th:text="${record.discipline.disciplineName}">Discipline</td>
-                <td class="cell" th:text="|Id:${record.student.id} Name:${record.student.firstName} ${record.student.lastName}|">Student</td>
+                <td class="cell" th:text="|Id:${record.student.id} Name: ${record.student.firstName} ${record.student.lastName}|">Student</td>
                 <td class="cell">
                     <a class="btn btn-success"  th:href="@{/students/__${record.getStudent().getId()}__}" role="button"> View Student Profile</a>
                 </td>
